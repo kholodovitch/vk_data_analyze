@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>6ff2c47f-782b-4efc-ac6e-56de833c14d3</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>fetch_photos.py</StartupFile>
+    <StartupFile>vk_data_analyze.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -28,6 +28,7 @@
     <Compile Include="fetch_photos.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="vk_api.py" />
     <Compile Include="vk_auth.py">
       <SubType>Code</SubType>
     </Compile>
