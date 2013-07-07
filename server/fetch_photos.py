@@ -38,7 +38,7 @@ def save_photos(urls, directory):
     for num, url in enumerate(urls):
         filename = os.path.join(directory, names_pattern % (num + 1))
         print "Downloading %s" % filename
-        open(filename, "w").write(urllib2.urlopen(url).read())
+        open(filename, "wb").write(urllib2.urlopen(url).read())
 
 directory = None
 if len(sys.argv) == 2:
