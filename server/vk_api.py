@@ -21,3 +21,12 @@ class vk_api(object):
     def get_albums(self):
         return self.call_api("photos.getAlbums", [("uid", self.user_id)], self.token)
 
+    def get_albums(self, user_id):
+        return self.call_api("photos.getAlbums", [("uid", user_id)], self.token)
+
+    def users_get(self, uids):
+        return self.call_api("users.get", [("uids", uids)], self.token)
+
+    def users_get(self, uids, fields):
+        return self.call_api("users.get", [("uids", uids), ("fields", fields)], self.token)
+
