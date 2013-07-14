@@ -18,6 +18,22 @@ def getDefinedAge(api):
             return delta.days / 365
     return None
 
+def getAgeByUniversities(api):
+    users = api.users_get(api.user_id, "universities,schools")
+    now = datetime.datetime.now()
+
+    if "universities" in users[0]:
+        universities = users[0]["universities"]
+        universities = [university for university in universities if 'graduation' in university]
+        if len(universities) > 0:
+            universities = sorted(universities, key = lambda university: university['graduation'])
+            bdate_date = datetime.datetime(universities[0]['graduation'] - 22, 1, 1)
+            delta = datetime.timedelta(days=(now - bdate_date).days)
+            return delta.days / 365
+    return None
+
+
+
 email = "darkangel_xxi@mail.ru" # raw_input("Email: ")
 password = "mamamia!16"         # getpass.getpass()
 client_id = "2951857"           # Vk application ID
@@ -28,5 +44,9 @@ api.auth(email, password, client_id)
 definedAge = getDefinedAge(api)
 if definedAge is not None:
     print definedAge
+
+ageByUniversities = getAgeByUniversities(api)
+if ageByUniversities is not None:
+    print ageByUniversities
 
 raw_input("Press Enter to continue...")
